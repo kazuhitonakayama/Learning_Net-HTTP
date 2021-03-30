@@ -1,29 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
 <br>
+<% @posts.each do |post| %>
+  <div class="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-md space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+    <div class="text-center space-y-2 sm:text-left">
+      <div class="space-y-0.5">
+        <p class="text-lg text-black font-semibold">
+          <%= post.title %>
+        </p>
+        <p class="text-gray-500 font-medium">
+          <%= post.content %>
+        </p>
+      </div>
+      <button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Message</button>
+    </div>
+  </div>
+<% end %>
 
 <%= link_to 'New Post', new_post_path %>
